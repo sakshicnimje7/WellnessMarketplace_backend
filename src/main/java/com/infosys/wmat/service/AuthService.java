@@ -11,12 +11,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-
 public class AuthService {
+
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private PractitionerProfileRepository practitionerProfileRepository;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -30,12 +32,12 @@ public class AuthService {
 
         User savedUser = userRepository.save(user);
 
-        // If user is a Practitioner, auto-create a profile
+        // If user is a Practitioner, create a profile automatically
         if (request.getRole() == Role.PRACTITIONER) {
             PractitionerProfile profile = new PractitionerProfile();
             profile.setUser(savedUser);
             profile.setSpecialization(request.getSpecialization());
-            profile.setVerified(false); // Milestone 1 Requirement: Verification pending
+            profile.setVerified(false); // <--- Matches the Entity method now
             practitionerProfileRepository.save(profile);
         }
 
