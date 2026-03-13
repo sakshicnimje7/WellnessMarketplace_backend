@@ -21,9 +21,9 @@
 7. Wait for the build to complete - Render will automatically deploy
 
 ### Required Environment Variables:
-- `DB_URL` - Your database connection string
-- `DB_USERNAME` - Database username  
-- `DB_PASSWORD` - Database password
+- `DB_URL` - Your Supabase connection pooler URI: `postgresql://postgres.phmknxietdrhyxjukgpe:[YOUR-PASSWORD]@aws-1-ap-southeast-2.pooler.supabase.com:5432/postgres`
+- `DB_USERNAME` - Database username (usually `postgres`)
+- `DB_PASSWORD` - Your Supabase database password
 - `JWT_SECRET` - Your JWT secret key
 
 ---
