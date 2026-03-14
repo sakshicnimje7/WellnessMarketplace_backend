@@ -10,4 +10,4 @@ FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 10000
-ENTRYPOINT sh -c "java -Dserver.port=$PORT -jar app.jar"
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=10000"]
